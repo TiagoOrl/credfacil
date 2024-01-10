@@ -1,10 +1,10 @@
 package com.asm.credfacil.service
 
-import com.asm.credfacil.dto.client.AddCustomerDTO
-import com.asm.credfacil.dto.client.GetClientDTO
+import com.asm.credfacil.entity.Customer
 
-interface IClientService {
-    fun save(clientDTO: AddCustomerDTO): AddCustomerDTO
-    fun findById(clientId: Long): GetClientDTO
-    fun delete(id: Long): GetClientDTO
+
+interface ICustomerService {
+    fun save(customer: Customer): Customer
+    fun findById(id: Long): Customer
+    fun delete(id: Long)
 }

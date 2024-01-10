@@ -1,11 +1,10 @@
 package com.asm.credfacil.service
 
-import com.asm.credfacil.dto.credit.AddCreditDTO
-import com.asm.credfacil.dto.credit.GetCreditDTO
+import com.asm.credfacil.entity.Credit
 import java.util.*
 
 interface ICreditService {
-    fun save(credit: AddCreditDTO): AddCreditDTO
-    fun findAllByCustomerId(customerId: Long): List<GetCreditDTO>
-    fun findByCreditCode(customerId: Long, code: UUID): GetCreditDTO
+    fun save(credit: Credit): Credit
+    fun findAllByCustomer(customerId: Long): List<Credit>
+    fun findByCreditCode(customerId: Long, creditCode: UUID): Credit
 }
