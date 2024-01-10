@@ -1,12 +1,11 @@
 package com.asm.credfacil.service.impl
 
-import com.asm.credfacil.dto.client.AddClientDTO
+import com.asm.credfacil.dto.client.AddCustomerDTO
 import com.asm.credfacil.dto.client.GetClientDTO
-import com.asm.credfacil.entity.Client
+import com.asm.credfacil.entity.Customer
 import com.asm.credfacil.repository.ClientRepository
 import com.asm.credfacil.service.IClientService
 import org.modelmapper.ModelMapper
-import org.springframework.beans.factory.annotation.Autowired
 import org.springframework.http.HttpStatus
 import org.springframework.stereotype.Service
 import org.springframework.web.server.ResponseStatusException
@@ -17,9 +16,8 @@ class ClientService(
     private val modelMapper: ModelMapper
 ): IClientService {
 
-    override fun save(clientDTO: AddClientDTO): AddClientDTO {
-        val newClient = modelMapper.map(clientDTO, Client::class.java)
-        repository.save(newClient)
+    override fun save(clientDTO: AddCustomerDTO): AddCustomerDTO {
+        repository.save(clientDTO.toEntity())
         return clientDTO
     }
 
