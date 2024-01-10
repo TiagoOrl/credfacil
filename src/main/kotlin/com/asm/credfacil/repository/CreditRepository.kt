@@ -8,9 +8,9 @@ import java.util.*
 
 
 @Repository
-interface CreditRepository : JpaRepository<Credit, Long> {
-    @Query("SELECT credit from Credit credit WHERE credit.client.id = ?1")
-    fun findAllByClientId(clientId: Long): Optional<List<Credit>>
+interface CreditRepository: JpaRepository<Credit, Long> {
+    fun findByCreditCode(creditCode: UUID) : Credit?
 
-    fun findByCreditCode(code: UUID): Optional<Credit>
+    @Query(value = "SELECT * FROM CREDIT WHERE CUSTOMER_ID = ?1", nativeQuery = true)
+    fun findAllByCustomerId(customerId: Long): List<Credit>
 }
