@@ -29,5 +29,5 @@ data class Credit(
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "fk_client_id")
-    var client: Client
+    var client: Client? = null
 )
