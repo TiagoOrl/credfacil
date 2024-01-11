@@ -9,6 +9,8 @@ import io.mockk.every
 import io.mockk.impl.annotations.InjectMockKs
 import io.mockk.impl.annotations.MockK
 import io.mockk.junit5.MockKExtension
+import io.mockk.just
+import io.mockk.runs
 import io.mockk.verify
 import org.assertj.core.api.Assertions
 import org.junit.jupiter.api.Test
@@ -72,6 +74,41 @@ class CustomerServiceTest {
         //then
         Assertions.assertThatExceptionOfType(BusinessException::class.java)
             .isThrownBy { service.findById(fakeId) }
+            .withMessage("Id $fakeId not found")
+
+        verify (exactly = 1) { repository.findById(fakeId) }
+    }
+
+    @Test
+    fun `should delete customer by Id` () {
+        //given
+        val fakeId = 10L
+        val fakeCustomer = CustomerMock.buildCustomer(id = fakeId)
+        every { repository.findById(fakeId) } returns Optional.of(fakeCustomer)
+        every { repository.delete(fakeCustomer) } just runs
+
+
+        //when
+        service.delete(fakeId)
+
+
+        //then
+        verify (exactly = 1) { repository.findById(fakeId) }
+        verify (exactly = 1) { repository.delete(fakeCustomer) }
+
+    }
+
+    @Test
+    fun `throw error on customer not found` () {
+        //given
+        val fakeId = 23L
+        val fakeCustomer = CustomerMock.buildCustomer(id = fakeId)
+        every { repository.findById(fakeId) } returns Optional.empty()
+        every { repository.delete(fakeCustomer) } just runs
+
+        //when
+        Assertions.assertThatExceptionOfType(BusinessException::class.java)
+            .isThrownBy { service.delete(fakeId) }
             .withMessage("Id $fakeId not found")
 
         verify (exactly = 1) { repository.findById(fakeId) }
