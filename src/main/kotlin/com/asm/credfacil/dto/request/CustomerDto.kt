@@ -1,10 +1,10 @@
 package me.dio.credit.application.system.dto.request
 
+import com.asm.credfacil.entity.Address
+import com.asm.credfacil.entity.Customer
 import jakarta.validation.constraints.Email
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
-import me.dio.credit.application.system.entity.Address
-import me.dio.credit.application.system.entity.Customer
 import org.hibernate.validator.constraints.br.CPF
 import java.math.BigDecimal
 

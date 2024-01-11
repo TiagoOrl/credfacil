@@ -4,9 +4,11 @@ import com.asm.credfacil.entity.Credit
 import com.asm.credfacil.exception.BusinessException
 import com.asm.credfacil.repository.CreditRepository
 import com.asm.credfacil.service.ICreditService
+import org.springframework.stereotype.Service
 import java.time.LocalDate
 import java.util.*
 
+@Service
 class CreditService(
     private val creditRepository: CreditRepository,
     private val customerService: CustomerService

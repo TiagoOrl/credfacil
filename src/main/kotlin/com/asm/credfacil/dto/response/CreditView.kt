@@ -1,7 +1,7 @@
 package me.dio.credit.application.system.dto.response
 
-import me.dio.credit.application.system.entity.Credit
-import me.dio.credit.application.system.enummeration.Status
+import com.asm.credfacil.entity.Credit
+import com.asm.credfacil.entity.Status
 import java.math.BigDecimal
 import java.util.*
 

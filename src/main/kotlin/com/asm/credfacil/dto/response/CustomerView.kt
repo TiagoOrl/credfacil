@@ -1,6 +1,6 @@
 package me.dio.credit.application.system.dto.response
 
-import me.dio.credit.application.system.entity.Customer
+import com.asm.credfacil.entity.Customer
 import java.math.BigDecimal
 
 data class CustomerView(

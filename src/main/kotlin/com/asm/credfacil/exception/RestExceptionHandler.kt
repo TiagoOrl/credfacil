@@ -1,5 +1,6 @@
 package me.dio.credit.application.system.exception
 
+import com.asm.credfacil.exception.BusinessException
 import org.springframework.dao.DataAccessException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity

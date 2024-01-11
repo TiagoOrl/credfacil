@@ -1,8 +1,8 @@
 package me.dio.credit.application.system.dto.request
 
+import com.asm.credfacil.entity.Customer
 import jakarta.validation.constraints.NotEmpty
 import jakarta.validation.constraints.NotNull
-import me.dio.credit.application.system.entity.Customer
 import java.math.BigDecimal
 
 data class CustomerUpdateDto(

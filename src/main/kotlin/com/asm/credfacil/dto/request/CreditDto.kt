@@ -1,11 +1,11 @@
 package me.dio.credit.application.system.dto.request
 
+import com.asm.credfacil.entity.Credit
+import com.asm.credfacil.entity.Customer
 import jakarta.validation.constraints.Future
 import jakarta.validation.constraints.Max
 import jakarta.validation.constraints.Min
 import jakarta.validation.constraints.NotNull
-import me.dio.credit.application.system.entity.Credit
-import me.dio.credit.application.system.entity.Customer
 import java.math.BigDecimal
 import java.time.LocalDate
 
