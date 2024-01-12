@@ -79,4 +79,15 @@ class CustomerControllerTest {
 
     }
 
+    @Test
+    fun `should return 400 bad request on blank firstName field`() {
+        val inputDto = CustomerMock.getCustomerDTO(firstName = "")
+
+        mockMvc.perform(MockMvcRequestBuilders.post(url)
+            .contentType(MediaType.APPLICATION_JSON)
+            .content(objectMapper.writeValueAsString(inputDto)))
+            .andExpect(MockMvcResultMatchers.status().isBadRequest)
+            .andDo(MockMvcResultHandlers.print())
+    }
+
 }
