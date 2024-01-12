@@ -19,5 +19,5 @@ data class Customer(
         cascade = arrayOf(CascadeType.REMOVE, CascadeType.PERSIST),
         mappedBy = "customer")
     var credits: List<Credit> = mutableListOf(),
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY) var id: Long? = null
+    @Id var id: Long? = null
 )
